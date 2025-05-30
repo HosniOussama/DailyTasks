@@ -1,19 +1,33 @@
-const { DataTypes } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
-const User = require('./User');
 
-const Task = sequelize.define('Task', {
+class Task extends Model {}
+
+Task.init({
   title: {
     type: DataTypes.STRING,
     allowNull: false,
+    validate: {
+      notEmpty: true
+    }
+  },
+  description: {
+    type: DataTypes.TEXT,
+    allowNull: true
   },
   completed: {
     type: DataTypes.BOOLEAN,
-    defaultValue: false,
+    defaultValue: false
   },
+  userId: {
+    type: DataTypes.INTEGER,
+    allowNull: false
+  }
+}, {
+  sequelize,
+  modelName: 'Task',
+  tableName: 'tasks',
+  timestamps: true
 });
-
-Task.belongsTo(User);
-User.hasMany(Task);
 
 module.exports = Task;

@@ -1,0 +1,247 @@
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  min-height: 100svh; /* For mobile browsers */
+  width: 100vw;
+  height: 100vh;
+  background-image: url('/login-decoration.jpg');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.auth-box {
+  background: rgba(255, 255, 255, 0.95);
+  padding: clamp(1.5rem, 5vw, 2.5rem);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: min(400px, 90vw);
+  position: relative;
+  z-index: 1;
+}
+
+.auth-image {
+  width: 100%;
+  height: 200px;
+  margin-bottom: 1.5rem;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.auth-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.auth-image img:hover {
+  transform: scale(1.05);
+}
+
+.auth-title {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: clamp(0.5rem, 3vw, 1rem);
+  font-size: clamp(1.5rem, 5vw, 2.2rem);
+  font-weight: 600;
+  position: relative;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.8rem, 2vw, 1.2rem);
+  margin-top: clamp(1rem, 3vw, 1.5rem);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.form-group input {
+  width: 100%;
+  padding: clamp(0.6rem, 2vw, 0.85rem);
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  transition: all 0.3s ease;
+  background: white;
+  color: #2c3e50;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.form-group input::placeholder {
+  color: #95a5a6;
+  font-size: clamp(0.85rem, 2vw, 0.95rem);
+}
+
+.auth-button {
+  width: 100%;
+  background-color: #3498db;
+  color: white;
+  padding: clamp(0.6rem, 2vw, 0.85rem);
+  border: none;
+  border-radius: 10px;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: clamp(0.3rem, 2vw, 0.5rem);
+}
+
+.auth-button:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.auth-button:active {
+  transform: translateY(0);
+}
+
+.auth-switch {
+  text-align: center;
+  margin-top: clamp(1.2rem, 4vw, 1.8rem);
+  color: #34495e;
+  font-size: clamp(0.85rem, 2vw, 0.95rem);
+}
+
+.switch-button {
+  background: none;
+  border: none;
+  color: #3498db;
+  cursor: pointer;
+  font-size: inherit;
+  padding: 0;
+  margin-left: 0.25rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.switch-button:hover {
+  color: #2980b9;
+  text-decoration: underline;
+}
+
+.role-selector {
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.role-label {
+  display: block;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.role-options {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.role-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.role-option:hover {
+  background-color: rgba(52, 152, 219, 0.1);
+}
+
+.role-option input[type="radio"] {
+  cursor: pointer;
+}
+
+.role-option span {
+  color: #2c3e50;
+  font-size: 0.95rem;
+}
+
+/* Media queries for specific adjustments */
+@media screen and (max-width: 480px) {
+  .auth-box {
+    margin: 1rem;
+  }
+  
+  .auth-title {
+    margin-bottom: 0.5rem;
+  }
+  
+  h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .role-options {
+    gap: 1rem;
+  }
+}
+
+/* For very small screens */
+@media screen and (max-width: 320px) {
+  .auth-container {
+    padding: 0.5rem;
+  }
+  
+  .auth-box {
+    padding: 1.2rem;
+  }
+
+  .role-options {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .role-option {
+    justify-content: center;
+  }
+}
+
+.validation-requirements {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  color: #6c757d;
+}
+
+.validation-requirements p {
+  margin: 0 0 0.3rem 0;
+  font-weight: 600;
+  color: #495057;
+}
+
+.validation-requirements ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.validation-requirements li {
+  margin: 0.2rem 0;
+} 
